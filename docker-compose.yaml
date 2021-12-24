@@ -1,0 +1,11 @@
+version: "3"
+services:
+  watchtower:
+    image: "containrrr/watchtower:${IMAGE_TAG:-amd64-1.3.0}"
+    command: --label-enable --cleanup --interval 300000
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    network_mode: none
+    restart: unless-stopped
+    volumes:
+      - /run/user/1000/docker.sock:/var/run/docker.sock
