@@ -1,6 +1,7 @@
 version: "3"
 services:
   watchtower:
+    container_name: watchtower
     image: "containrrr/watchtower:${IMAGE_TAG:-amd64-1.3.0}"
     command: --label-enable --cleanup --interval 300000
     labels:
